@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Result</title>
+        <script>
+            function refresh(period){
+                {% if result == 'PENDING' %}
+                    setTimeout(function(){location.reload(true);}, period);
+                {% endif %}
+            }
+        </script>
+    </head>
+    <body onload="refresh(1000)">
+        {{ result }}
+    </body>
+</html>

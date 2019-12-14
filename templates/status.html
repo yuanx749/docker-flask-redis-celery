@@ -2,15 +2,13 @@
 <html>
     <head>
         <title>Result</title>
-        <script>
-            function refresh(period){
-                {% if result == 'PENDING' %}
-                    setTimeout(function(){location.reload(true);}, period);
-                {% endif %}
-            }
-        </script>
     </head>
-    <body onload="refresh(1000)">
-        {{ result }}
+    <body>
+        {% if not successful %}
+            {{ state }}
+            <script>setTimeout(function(){location.reload(true);}, 1000);</script>
+        {% else %}
+            {{ result }}
+        {% endif %}
     </body>
 </html>

@@ -3,8 +3,8 @@ import time
 
 CELERY_BROKER_URL = 'redis://redis:6379/0'
 CELERY_RESULT_BACKEND = 'redis://redis:6379/0'
-# CELERY_BROKER_URL = 'redis://localhost'
-# CELERY_RESULT_BACKEND = 'redis://localhost'
+# CELERY_BROKER_URL = 'redis://localhost:6379/0'
+# CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
 app_celery = Celery('tasks', broker=CELERY_BROKER_URL, backend=CELERY_RESULT_BACKEND)
 app_celery.conf.worker_prefetch_multiplier = 1
 

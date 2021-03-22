@@ -1,4 +1,5 @@
 # docker-flask-redis-celery
+skeleton code of distributed system for computational experiments
 ## install [docker](https://docs.docker.com/install/linux/linux-postinstall/)
 ```bash
 sudo apt-get update
@@ -18,4 +19,6 @@ sudo chmod +x /usr/local/bin/docker-compose
 ```bash
 docker-compose build
 docker-compose up --scale worker=3
+curl -i http://localhost:5000/mapreduce/10
+docker-compose down
 ```

@@ -4,8 +4,8 @@ services:
     container_name: flask
     hostname: flask
     build: .
-    entrypoint: python3
-    command: app.py
+    entrypoint: gunicorn 
+    command: ["--workers=3", "--bind=0.0.0.0:5000", "app:app_flask"]
     restart: always
     ports:
       - "5000:5000"

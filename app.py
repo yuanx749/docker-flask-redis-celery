@@ -1,5 +1,6 @@
 from flask import Flask, redirect, url_for, render_template
 from celery import Celery
+import logging
 
 CELERY_BROKER_URL = 'redis://redis:6379/0'
 CELERY_RESULT_BACKEND = 'redis://redis:6379/0'
@@ -44,3 +45,8 @@ def mapreduce_status(task_id):
 
 if __name__ == "__main__":
     app_flask.run(host='0.0.0.0', debug=True)
+else:
+    gunicorn_logger = logging.getLogger('gunicorn.error')
+    for hdlr in gunicorn_logger.handlers:
+        app_flask.logger.addHandler(hdlr)
+    app_flask.logger.setLevel(gunicorn_logger.level)

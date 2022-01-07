@@ -1,4 +1,4 @@
 flask
-celery==5.2.2
+celery==5.2.3
 redis
 gunicorn

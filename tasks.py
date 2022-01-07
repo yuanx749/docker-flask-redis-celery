@@ -29,4 +29,4 @@ def map_reduce(n):
     # return chain(group(header), callback).apply_async()
 
 if __name__ == "__main__":
-    app_celery.start(['celery', 'worker', '-l', 'info'])
+    app_celery.start(['worker', '-l', 'INFO'])
